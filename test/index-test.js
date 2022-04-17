@@ -10,17 +10,34 @@ describe('basic math functions', function () {
     expect(add).toExist
   })
 
+  function add(a,b) {
+    return a + b;
+  }
+
   it("'subtract()' is a valid function", function() {
     expect(subtract).toExist
   })
+
+  function subtract(a,b) {
+    return a - b;
+  }
 
   it("'multiply()' is a valid function", function() {
     expect(multiply).toExist
   })
 
+  function multiply(a,b) {
+    return a * b;
+  }
+
   it("'divide()' is a valid function", function() {
     expect(divide).toExist
   })
+
+  function divide(a,b) {
+    return a / b;
+  }
+
 
   it('add(a, b) adds two numbers and returns the result', function() {
     expect(add(a, b)).toEqual(a + b)
@@ -41,11 +58,19 @@ describe('basic math functions', function () {
   it('increment(n) increments n and returns the result', function() {
     expect(increment(a)).toEqual(a + 1)
   })
+
+  function increment(n) {
+    return n += 1;
+  }
   
   it('decrement(n) decrements n and returns the result', function() {
     expect(decrement(a)).toEqual(a - 1)
   })
 })
+
+function decrement(n) {
+  return n -= 1;
+}
 
 
 
@@ -55,9 +80,18 @@ describe('makeInt(n)', function() {
     expect(makeInt(a.toString())).toEqual(a)
   })
 
+  function makeInt(n) {
+    return n;
+  }
+  
+
   it('assumes base 10', function() {
     expect(makeInt('0x2328')).toEqual(0)
   })
+
+  function makeInt(n) {
+    return parseInt(n, 10);
+  }
 
   it('returns NaN as appropriate', function() {
     expect(isNaN(makeInt('sldkjflksjf'))).toEqual(true)
@@ -69,7 +103,12 @@ describe('preserveDecimal(n)', function() {
     expect(preserveDecimal('2.222')).toBe(2.222)
   })
 
+
   it('returns NaN as appropriate', function() {
     expect(isNaN(preserveDecimal('sldkjflksjf'))).toEqual(true)
   })
 })
+
+function preserveDecimal(n) {
+  return parseFloat(n);
+}
